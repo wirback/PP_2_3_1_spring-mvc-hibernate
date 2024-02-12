@@ -23,16 +23,16 @@ import javax.sql.DataSource;
 import java.util.Objects;
 import java.util.Properties;
 
-@Configuration
-@PropertySource("classpath:db.properties")
-@EnableTransactionManagement
-@ComponentScan(value = "web")
+//@Configuration
+//@PropertySource("classpath:db.properties")
+//@EnableTransactionManagement
+//@ComponentScan(value = "web")
 public class AppConfig {
 
-    @Autowired
+//    @Autowired
     private Environment env;
 
-    @Bean
+//    @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(getDataSource());
@@ -45,7 +45,7 @@ public class AppConfig {
         return em;
     }
 
-    @Bean
+//    @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));
@@ -55,7 +55,7 @@ public class AppConfig {
         return dataSource;
     }
 
-    @Bean
+//    @Bean
     public PlatformTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
@@ -63,7 +63,7 @@ public class AppConfig {
         return transactionManager;
     }
 
-    @Bean
+//    @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
@@ -72,6 +72,7 @@ public class AppConfig {
         Properties properties = new Properties();
         properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         properties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
 
         return properties;
     }
