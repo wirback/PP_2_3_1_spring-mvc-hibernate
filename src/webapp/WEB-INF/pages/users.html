@@ -7,17 +7,17 @@
 </head>
 <body>
 
-<table>
-  <tr th:each="user : ${userList}">
-    <td><span th:ref=""></span></td>
-    <td><span th:text="${user.getFirstName()}"></span></td>
-    <td><span th:text="${user.getLastName()}"></span></td>
-  </tr>
-</table>
+<!--<table>-->
+<!--  <tr th:each="user : ${userList}">-->
+<!--    <td><span th:ref=""></span></td>-->
+<!--    <td><span th:text="${user.getFirstName()}"></span></td>-->
+<!--    <td><span th:text="${user.getLastName()}"></span></td>-->
+<!--  </tr>-->
+<!--</table>-->
 
 <div th:each="user : ${userList}">
-  <a th:href="@{/userList/{id}(id=${userList.getId()})}"
-     th:text="${user.getFirstName() + ' ' + user.getLastName()}">user</a>
+  <a th:href="@{/user/{id}(id=${user.getId()})}"
+     th:text="${user.firstName + ' ' + user.lastName}">user</a>
 </div>
 
 <br>

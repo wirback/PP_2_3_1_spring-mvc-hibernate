@@ -13,14 +13,13 @@ import java.util.List;
 
 //@Repository
 //@Transactional
-@Component
+//@Component
 public class UserDaoImpl implements UserDao{
-    @PersistenceContext
+//    @PersistenceContext
     private EntityManager entityManager;
-    private final SessionFactory sessionFactory;
 
-    public UserDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public UserDaoImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
 

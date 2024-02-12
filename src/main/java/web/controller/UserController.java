@@ -1,11 +1,10 @@
 package web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 import web.service.UserServiceImpl;
@@ -15,20 +14,31 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/")
 public class UserController {
     private final UserService userService;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-//    @GetMapping("/")
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-//    public String getAllUsers(ModelMap model, @RequestParam(required = false, defaultValue = "0") Integer id) {
+    @GetMapping()
     public String getAllUsers(ModelMap model) {
-//        Optional<UserService> opt = Optional.ofNullable(userService.getAllUsers());
-//        model.addAllAttributes(Optional.ofNullable(userService.getAllUsers()).orElse(new ));
-        model.addAllAttributes(userService.getAllUsers());
+        model.addAttribute("userList", userService.getAllUsers());
+
         return "users";
+    }
+
+    @GetMapping("/new")
+    public String newUser(@ModelAttribute("user") User user) {
+        return "/new";
+    }
+
+    @PostMapping()
+    public String create(@ModelAttribute("user") User user) {
+        userService.setUser(user);
+
+        return "redirect:/";
     }
 }

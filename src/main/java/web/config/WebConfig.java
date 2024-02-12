@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -32,6 +33,7 @@ import java.util.Properties;
 @ComponentScan("web")
 @PropertySource("classpath:db.properties") // new
 @EnableTransactionManagement // new
+@EnableJpaRepositories("web.repositories")
 public class WebConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
@@ -93,11 +95,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(getDataSource());
         em.setPackagesToScan("web.model");
 
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());
 
