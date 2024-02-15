@@ -10,17 +10,17 @@ public class User {
 //    @Column(name = "id")
     private Long id;
 //    @Column(name = "name")
-    private String firstName;
+    private String name;
 //    @Column(name = "last_name")
-    private String lastName;
+    private String surName;
 
 
     public User() {
     }
 
-    public User(String name, String lastName) {
-        this.firstName = name;
-        this.lastName = lastName;
+    public User(String name, String surName) {
+        this.name = name;
+        this.surName = surName;
     }
 
     public Long getId() {
@@ -31,19 +31,19 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurName() {
+        return surName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setSurName(String lastName) {
+        this.surName = lastName;
     }
 }

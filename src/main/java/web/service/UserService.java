@@ -1,6 +1,5 @@
 package web.service;
 
-import org.springframework.stereotype.Service;
 import web.model.User;
 
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 public interface UserService {
     List<User> getAllUsers();
     User getUserById(Long id);
-    void setUser(User user);
-    void updateUser(Long id, User user);
-    void deleteUserById(Long id);
+    void addUser(User user);
+//    void updateUser(Long id, User user);
+//    void deleteUserById(Long id);
 }

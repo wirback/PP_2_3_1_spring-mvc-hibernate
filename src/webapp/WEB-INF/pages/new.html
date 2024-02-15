@@ -6,6 +6,17 @@
 </head>
 <body>
 
+<form method="post" action="/new">
+    <table>
+        <label for="name">Name: </label>
+        <input name="name" type="text" placeholder="enter name" id="name"> <br>
+        <label for="surname">Surname: </label>
+        <input name="surName" type="text" placeholder="enter surname" id="surname"> <br>
+    </table>
+    <br>
+    <input type="submit" value="Save user">
+</form>
+
 <!--<form th:method="POST" th:action="@{/people}" th:object="${person}">-->
 <!--<form th:method="POST" th:action="@{/}" th:object="${user}">-->
 <!--    <label for="firstName">Enter name: </label>-->
@@ -19,21 +30,21 @@
 <!--    <input type="submit" value="Create!"/>-->
 <!--</form>-->
 
-<form action="#" th:action="@{/new.html}" th:object="${user}" method="post">
-    <table border="1">
-        <tr>
-            <td><label for="firstName">Enter name: </label></td>
-            <td><input type="text" th:field="*{firstName}" id="firstName" /></td>
-        </tr>
-        <tr>
-            <td><label for="lastName">Enter last name: </label></td>
-            <td><input type="text" th:field="*{lastName}" id="lastName" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Submit" /></td>
-        </tr>
-    </table>
-</form>
+<!--<form action="#" th:action="@{/new}" th:object="${user}" method="post">-->
+<!--    <table border="1">-->
+<!--        <tr>-->
+<!--            <td><label for="firstName">Enter name: </label></td>-->
+<!--            <td><input type="text" th:field="*{user.setFirstName()}" id="firstName" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><label for="lastName">Enter last name: </label></td>-->
+<!--            <td><input type="text" th:field="*{user.setLastName()}" id="lastName" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="submit" value="Submit" /></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</form>-->
 
 </body>
 </html>

@@ -5,8 +5,8 @@ import web.model.User;
 import java.util.List;
 
 public interface UserDao {
-    User getUserById(Integer id);
-    void setUserById(Integer id);
+    User getUserById(Long id);
+    void addUser(User user);
 
     List<User> getAllUsers();
 }

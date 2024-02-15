@@ -7,22 +7,17 @@
 </head>
 <body>
 
-<!--<table>-->
-<!--  <tr th:each="user : ${userList}">-->
-<!--    <td><span th:ref=""></span></td>-->
-<!--    <td><span th:text="${user.getFirstName()}"></span></td>-->
-<!--    <td><span th:text="${user.getLastName()}"></span></td>-->
-<!--  </tr>-->
-<!--</table>-->
-
-<div th:each="user : ${userList}">
-  <a th:href="@{/user/{id}(id=${user.getId()})}"
-     th:text="${user.firstName + ' ' + user.lastName}">user</a>
-</div>
+<form method="get">
+    <table>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.getId() + ') ' + user.getName() + ' ' + user.getSurName()}"/>
+        </tr>
+    </table>
+</form>
 
 <br>
 
-<a href="/new">Create new user</a>
+<a href="/new"><input type="submit" value="Create new user"></a>
 
 </body>
 </html>
