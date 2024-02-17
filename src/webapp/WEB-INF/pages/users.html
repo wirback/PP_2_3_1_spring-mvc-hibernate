@@ -7,13 +7,11 @@
 </head>
 <body>
 
-<form method="get">
-    <table>
-        <tr th:each="user : ${userList}">
-            <td th:text="${user.getId() + ') ' + user.getName() + ' ' + user.getSurName()}"/>
-        </tr>
-    </table>
-</form>
+<table>
+    <tr th:each="user : ${userList}">
+        <a th:href="@{'/update?id=' + ${user.id}}" th:text="|${user.id}. ${user.name} ${user.surName}|">User</a> <br>
+    </tr>
+</table>
 
 <br>
 
