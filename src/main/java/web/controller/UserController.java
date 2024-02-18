@@ -20,14 +20,14 @@ public class UserController {
 
     @GetMapping()
     public String getAllUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("users", userService.findAll());
 
         return "index";
     }
 
     @GetMapping("/show")
     public String show(@RequestParam("id") Long id, Model model) {
-        model.addAttribute("user", userService.getUserById(id));
+        model.addAttribute("user", userService.findById(id));
         return "show";
     }
 
@@ -38,19 +38,19 @@ public class UserController {
 
     @PostMapping()
     public String create(@ModelAttribute("user") User user) {
-        userService.addUser(user);
+        userService.save(user);
         return "redirect:/";
     }
 
     @PostMapping("/update")
     public String update(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
+        userService.save(user);
         return "redirect:/";
     }
 
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
-        userService.deleteUserById(id);
+        userService.deleteById(id);
         return "redirect:/";
     }
 }
