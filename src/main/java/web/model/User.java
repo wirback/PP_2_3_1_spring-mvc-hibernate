@@ -7,11 +7,8 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
     private Long id;
-//    @Column(name = "name")
     private String name;
-//    @Column(name = "last_name")
     private String surName;
 
 
@@ -22,6 +19,7 @@ public class User {
         this.name = name;
         this.surName = surName;
     }
+
 
     public Long getId() {
         return id;

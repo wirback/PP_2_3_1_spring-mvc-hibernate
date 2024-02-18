@@ -11,10 +11,12 @@ import web.service.UserService;
 public class UserController {
     private final UserService userService;
 
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
 
     @GetMapping()
     public String getAllUsers(Model model) {
