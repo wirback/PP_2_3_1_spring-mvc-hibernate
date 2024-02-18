@@ -9,7 +9,6 @@ import web.model.User;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService{
 
     private final UserDao userDao;

@@ -6,17 +6,15 @@
 </head>
 <body>
 
-<form method="post" action="/new">
-    <table>
-        <label for="name">Name:
-            <input id="name" name="name" type="text" placeholder="enter name">
-        </label> <br>
-        <label for="surname">Surname:
-            <input id="surname" name="surName" type="text" placeholder="enter surname">
-        </label> <br>
-    </table>
-    <br>
-    <input type="submit" value="Save user">
+<form th:method="POST" th:action="@{/}" th:object="${user}">
+    <label for="name">Name:
+        <input id="name" type="text" th:field="*{name}" placeholder="enter the user name">
+    </label> <br>
+    <label for="surname">Name:
+        <input id="surname" type="text" th:field="*{surName}" placeholder="enter the user's last name">
+    </label> <br>
+    <hr>
+    <input type="submit" value="Create!">
 </form>
 
 </body>
