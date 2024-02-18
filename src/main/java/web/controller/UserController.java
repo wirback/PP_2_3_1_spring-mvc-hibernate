@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/show")
-    public String show(@RequestParam("userId") Long id, Model model) {
+    public String show(@RequestParam("id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "show";
     }
@@ -46,9 +46,9 @@ public class UserController {
         return "redirect:/";
     }
 
-    @PostMapping("/delete")
-    public String delete(@ModelAttribute("user") User user) {
-        userService.deleteUserById(user.getId());
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id) {
+        userService.deleteUserById(id);
         return "redirect:/";
     }
 }

@@ -20,9 +20,11 @@
     <input type="submit" value="Update!">
 </form>
 <br>
-<form th:method="POST" th:action="@{/delete}" th:object="${user}">
+<!--<form th:method="POST" th:action="@{/delete}" th:object="${user}">-->
+<form th:action="@{/delete}" th:object="${user}">
     <input type="hidden" th:field="*{id}">
-    <input type="submit" value="Delete!">
+<!--    <input type="submit" value="Delete!">-->
+    <input th:href="@{/show(id=${user.getId()})}" type="submit" value="Delete!">
 </form>
 
 </body>
