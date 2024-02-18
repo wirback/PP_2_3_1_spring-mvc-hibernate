@@ -24,7 +24,7 @@
 <form th:action="@{/delete}" th:object="${user}">
     <input type="hidden" th:field="*{id}">
 <!--    <input type="submit" value="Delete!">-->
-    <input th:href="@{/show(id=${user.getId()})}" type="submit" value="Delete!">
+    <input th:href="@{/show(id=${user.getId()})}" type="submit" style="color: red" value="Delete!">
 </form>
 
 </body>
